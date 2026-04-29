@@ -1,0 +1,252 @@
+[
+    {
+        "name": "Poco X6 Pro",
+        "description": "The smartphone from Xiaomi, Storage 256 GB RAM 12GB",
+        "price": 1899
+    },
+    {
+        "name": "Redmi Note 13 Pro",
+        "description": "The smartphone from Xiaomi, Storage 256 GB RAM 8GB",
+        "price": 1499
+    },
+    {
+        "name": "Samsung Galaxy S24",
+        "description": "The smartphone from Samsung, Storage 256 GB RAM 8GB",
+        "price": 3299
+    },
+    {
+        "name": "Samsung Galaxy A55",
+        "description": "The smartphone from Samsung, Storage 128 GB RAM 8GB",
+        "price": 1799
+    },
+    {
+        "name": "iPhone 15",
+        "description": "The smartphone from Apple, Storage 128 GB RAM 6GB",
+        "price": 3899
+    },
+    {
+        "name": "iPhone 15 Pro",
+        "description": "The smartphone from Apple, Storage 256 GB RAM 8GB",
+        "price": 5299
+    },
+    {
+        "name": "Motorola Edge 50",
+        "description": "The smartphone from Motorola, Storage 256 GB RAM 12GB",
+        "price": 2199
+    },
+    {
+        "name": "Moto G84",
+        "description": "The smartphone from Motorola, Storage 256 GB RAM 8GB",
+        "price": 1299
+    },
+    {
+        "name": "Honor Magic 6 Lite",
+        "description": "The smartphone from Honor, Storage 256 GB RAM 8GB",
+        "price": 1599
+    },
+    {
+        "name": "Realme 12 Pro Plus",
+        "description": "The smartphone from Realme, Storage 256 GB RAM 12GB",
+        "price": 1999
+    },
+    {
+        "name": "OnePlus 12",
+        "description": "The smartphone from OnePlus, Storage 512 GB RAM 16GB",
+        "price": 3599
+    },
+    {
+        "name": "OnePlus Nord CE 4",
+        "description": "The smartphone from OnePlus, Storage 256 GB RAM 8GB",
+        "price": 1699
+    },
+    {
+        "name": "Google Pixel 8",
+        "description": "The smartphone from Google, Storage 128 GB RAM 8GB",
+        "price": 3099
+    },
+    {
+        "name": "Google Pixel 8 Pro",
+        "description": "The smartphone from Google, Storage 256 GB RAM 12GB",
+        "price": 4399
+    },
+    {
+        "name": "Huawei Nova 12i",
+        "description": "The smartphone from Huawei, Storage 256 GB RAM 8GB",
+        "price": 1399
+    },
+    {
+        "name": "Huawei P60 Pro",
+        "description": "The smartphone from Huawei, Storage 512 GB RAM 12GB",
+        "price": 4199
+    },
+    {
+        "name": "Xiaomi 14",
+        "description": "The smartphone from Xiaomi, Storage 512 GB RAM 12GB",
+        "price": 3499
+    },
+    {
+        "name": "Xiaomi 14 Ultra",
+        "description": "The smartphone from Xiaomi, Storage 512 GB RAM 16GB",
+        "price": 4999
+    },
+    {
+        "name": "Redmi 13",
+        "description": "The smartphone from Xiaomi, Storage 128 GB RAM 6GB",
+        "price": 999
+    },
+    {
+        "name": "Redmi Note 12S",
+        "description": "The smartphone from Xiaomi, Storage 256 GB RAM 8GB",
+        "price": 1199
+    },
+    {
+        "name": "Samsung Galaxy Z Flip 5",
+        "description": "The smartphone from Samsung, Storage 256 GB RAM 8GB",
+        "price": 4299
+    },
+    {
+        "name": "Samsung Galaxy Z Fold 5",
+        "description": "The smartphone from Samsung, Storage 512 GB RAM 12GB",
+        "price": 6999
+    },
+    {
+        "name": "iPhone 14",
+        "description": "The smartphone from Apple, Storage 128 GB RAM 6GB",
+        "price": 3399
+    },
+    {
+        "name": "iPhone 14 Plus",
+        "description": "The smartphone from Apple, Storage 256 GB RAM 6GB",
+        "price": 3999
+    },
+    {
+        "name": "Motorola Razr 40",
+        "description": "The smartphone from Motorola, Storage 256 GB RAM 8GB",
+        "price": 2899
+    },
+    {
+        "name": "Moto G54",
+        "description": "The smartphone from Motorola, Storage 128 GB RAM 8GB",
+        "price": 1099
+    },
+    {
+        "name": "Honor X8b",
+        "description": "The smartphone from Honor, Storage 512 GB RAM 8GB",
+        "price": 1499
+    },
+    {
+        "name": "Honor Magic V2",
+        "description": "The smartphone from Honor, Storage 512 GB RAM 16GB",
+        "price": 5899
+    },
+    {
+        "name": "Realme C67",
+        "description": "The smartphone from Realme, Storage 256 GB RAM 8GB",
+        "price": 999
+    },
+    {
+        "name": "Realme GT 5 Pro",
+        "description": "The smartphone from Realme, Storage 512 GB RAM 16GB",
+        "price": 3299
+    },
+    {
+        "name": "OnePlus Open",
+        "description": "The smartphone from OnePlus, Storage 512 GB RAM 16GB",
+        "price": 6199
+    },
+    {
+        "name": "OnePlus 11R",
+        "description": "The smartphone from OnePlus, Storage 256 GB RAM 16GB",
+        "price": 2799
+    },
+    {
+        "name": "Google Pixel 7a",
+        "description": "The smartphone from Google, Storage 128 GB RAM 8GB",
+        "price": 1999
+    },
+    {
+        "name": "Google Pixel Fold",
+        "description": "The smartphone from Google, Storage 256 GB RAM 12GB",
+        "price": 6499
+    },
+    {
+        "name": "Huawei Mate 50 Pro",
+        "description": "The smartphone from Huawei, Storage 256 GB RAM 8GB",
+        "price": 3699
+    },
+    {
+        "name": "Huawei Nova 11 Pro",
+        "description": "The smartphone from Huawei, Storage 256 GB RAM 8GB",
+        "price": 2299
+    },
+    {
+        "name": "Xiaomi Redmi K70",
+        "description": "The smartphone from Xiaomi, Storage 256 GB RAM 12GB",
+        "price": 2399
+    },
+    {
+        "name": "Xiaomi Poco C65",
+        "description": "The smartphone from Xiaomi, Storage 128 GB RAM 6GB",
+        "price": 799
+    },
+    {
+        "name": "Samsung Galaxy M55",
+        "description": "The smartphone from Samsung, Storage 256 GB RAM 8GB",
+        "price": 1699
+    },
+    {
+        "name": "Samsung Galaxy A35",
+        "description": "The smartphone from Samsung, Storage 128 GB RAM 6GB",
+        "price": 1399
+    },
+    {
+        "name": "iPhone SE 2022",
+        "description": "The smartphone from Apple, Storage 128 GB RAM 4GB",
+        "price": 2199
+    },
+    {
+        "name": "iPhone 13",
+        "description": "The smartphone from Apple, Storage 128 GB RAM 4GB",
+        "price": 2999
+    },
+    {
+        "name": "Motorola Edge 40 Neo",
+        "description": "The smartphone from Motorola, Storage 256 GB RAM 12GB",
+        "price": 1599
+    },
+    {
+        "name": "Moto G73",
+        "description": "The smartphone from Motorola, Storage 128 GB RAM 8GB",
+        "price": 1199
+    },
+    {
+        "name": "Honor 90",
+        "description": "The smartphone from Honor, Storage 512 GB RAM 12GB",
+        "price": 2199
+    },
+    {
+        "name": "Honor X7b",
+        "description": "The smartphone from Honor, Storage 256 GB RAM 8GB",
+        "price": 1099
+    },
+    {
+        "name": "Realme Narzo 60",
+        "description": "The smartphone from Realme, Storage 128 GB RAM 8GB",
+        "price": 999
+    },
+    {
+        "name": "Realme 11 Pro",
+        "description": "The smartphone from Realme, Storage 256 GB RAM 8GB",
+        "price": 1499
+    },
+    {
+        "name": "OnePlus Nord 3",
+        "description": "The smartphone from OnePlus, Storage 256 GB RAM 16GB",
+        "price": 2099
+    },
+    {
+        "name": "OnePlus 10 Pro",
+        "description": "The smartphone from OnePlus, Storage 256 GB RAM 12GB",
+        "price": 2899
+    }
+]

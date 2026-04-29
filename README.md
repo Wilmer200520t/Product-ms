@@ -64,13 +64,13 @@ La API se ejecuta en `http://localhost:3001`.
 
 ## Endpoints disponibles
 
-| Método | Ruta            | Descripción                |
-| ------ | --------------- | -------------------------- |
-| POST   | `/products`     | Crear un producto          |
-| GET    | `/products`     | Listar todos los productos |
-| GET    | `/products/:id` | Obtener un producto por ID |
-| PATCH  | `/products/:id` | Actualizar un producto     |
-| DELETE | `/products/:id` | Eliminar un producto       |
+| Método | Ruta | Descripción |
+| ------ | ---- | ----------- |
+| POST | `/products` | Crear un producto |
+| GET | `/products` | Listar todos los productos |
+| GET | `/products/:id` | Obtener un producto por ID |
+| PATCH | `/products/:id` | Actualizar un producto |
+| DELETE | `/products/:id` | Eliminar un producto |
 
 ## Estructura clave
 
