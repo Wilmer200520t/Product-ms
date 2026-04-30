@@ -1,27 +1,50 @@
-import { Injectable, NotFoundException } from "@nestjs/common";
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from "@nestjs/common";
 import { CreateProductDto } from "./dto/create-product.dto";
 import { UpdateProductDto } from "./dto/update-product.dto";
 import { PrismaService } from "../prisma-config/prisma.service";
 import { PaginationDto } from "../common/dto";
 import { envs } from "../configs";
-import {
-  Prisma__ProductClient,
-  ProductFindFirstArgs,
-  ProductFindUniqueArgs,
-} from "../generated/models";
 import { Product } from "./entities/product.entity";
 
 @Injectable()
 export class ProductsService {
   constructor(private prisma: PrismaService) {}
 
-  async findProductOrFail(idproduct: number): Promise<Product> {
+  async findProductOrFail(
+    idproduct: number,
+    _validateEnable = true,
+  ): Promise<Omit<Product, "enabled">> {
+    const condition = _validateEnable
+      ? { idproduct, enabled: true }
+      : { idproduct };
+
     const product = await this.prisma.product.findFirst({
-      where: { idproduct },
+      where: condition,
+      select: {
+        idproduct: true,
+        name: true,
+        description: true,
+        price: true,
+        enabled: _validateEnable == true ? false : true,
+        createdAt: true,
+        updatedAt: true,
+      },
     });
 
     if (!product) {
-      throw new NotFoundException(`Product with ID: ${idproduct} not found`);
+      throw new NotFoundException(
+        `Product with ID: ${idproduct} not found ${_validateEnable ? "or not enabled" : ""}`,
+      );
+    }
+
+    if (product.enabled) {
+      throw new BadRequestException(
+        `Product with ID: ${idproduct} is already enabled`,
+      );
     }
 
     return product;
@@ -41,11 +64,23 @@ export class ProductsService {
     const { page = envs.DEFAULT_PAGE_SIZE, limit = envs.DEFAULT_LIMIT_PAGE } =
       paginationDto;
 
-    const totalItems = await this.prisma.product.count();
+    const totalItems = await this.prisma.product.count({
+      where: { enabled: true },
+    });
     const totalPages = Math.ceil(totalItems / limit);
     const data = await this.prisma.product.findMany({
       skip: (page - 1) * limit,
       take: limit,
+      where: { enabled: true },
+      select: {
+        idproduct: true,
+        name: true,
+        description: true,
+        price: true,
+        enabled: false,
+        createdAt: true,
+        updatedAt: true,
+      },
     });
 
     return {
@@ -79,12 +114,24 @@ export class ProductsService {
   async remove(idproduct: number) {
     await this.findProductOrFail(idproduct);
 
-    await this.prisma.product.delete({
+    await this.prisma.product.update({
       where: { idproduct },
+      data: {
+        enabled: false,
+      },
     });
 
     return {
-      message: `Product with ID: ${idproduct} has been deleted`,
+      message: `Product with ID: ${idproduct} has been disabled`,
     };
+  }
+
+  async enableProduct(id: number) {
+    const product = await this.findProductOrFail(id, false);
+
+    return this.prisma.product.update({
+      where: { idproduct: id },
+      data: { enabled: true },
+    });
   }
 }
