@@ -15,17 +15,16 @@ import { Product } from "./entities/product.entity";
 export class ProductsService {
   constructor(private prisma: PrismaService) {}
 
-  async validateProductExists(
-    data: Promise<Product | null>,
-    idproduct: number,
-  ): Promise<Product> {
-    const productData = await data;
+  async findProductOrFail(idproduct: number): Promise<Product> {
+    const product = await this.prisma.product.findFirst({
+      where: { idproduct },
+    });
 
-    if (!productData) {
+    if (!product) {
       throw new NotFoundException(`Product with ID: ${idproduct} not found`);
     }
 
-    return productData;
+    return product;
   }
 
   create(createProductDto: CreateProductDto) {
@@ -61,14 +60,12 @@ export class ProductsService {
   }
 
   async findOne(idproduct: number) {
-    const data = this.prisma.product.findFirst({
-      where: { idproduct },
-    });
-
-    return this.validateProductExists(data, idproduct);
+    return this.findProductOrFail(idproduct);
   }
 
-  update(idproduct: number, updateProductDto: UpdateProductDto) {
+  async update(idproduct: number, updateProductDto: UpdateProductDto) {
+    await this.findProductOrFail(idproduct);
+
     return this.prisma.product.update({
       where: { idproduct },
       data: {
@@ -80,17 +77,14 @@ export class ProductsService {
   }
 
   async remove(idproduct: number) {
-    const product = this.prisma.product.findUnique({ where: { idproduct } });
+    await this.findProductOrFail(idproduct);
 
-    await this.validateProductExists(product, idproduct);
-
-    const deletedProduct = await this.prisma.product.delete({
+    await this.prisma.product.delete({
       where: { idproduct },
     });
 
     return {
       message: `Product with ID: ${idproduct} has been deleted`,
-      deletedProduct,
     };
   }
 }
