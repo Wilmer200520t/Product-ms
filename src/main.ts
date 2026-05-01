@@ -1,10 +1,16 @@
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
-import { ValidationPipe } from "@nestjs/common";
+import { Logger, ValidationPipe } from "@nestjs/common";
 import { envs } from "./configs";
+import { Transport } from "@nestjs/microservices";
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.createMicroservice(AppModule, {
+    transport: Transport.TCP,
+    options: {
+      port: envs.APP_PORT,
+    },
+  });
 
   //** Configuraciones globales, como CORS, prefijos de ruta, etc., se pueden agregar aquí **//
   // Configuracion Validacion global
@@ -16,6 +22,10 @@ async function bootstrap() {
     }),
   );
 
-  await app.listen(envs.APP_PORT);
+  await app.listen();
+  Logger.log(
+    `Product Microservice running on port ${envs.APP_PORT}`,
+    "AppProducts",
+  );
 }
 bootstrap();
