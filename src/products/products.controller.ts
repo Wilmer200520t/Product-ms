@@ -19,9 +19,9 @@ export class ProductsController {
     return this.productsService.findAll(paginationDto);
   }
 
-  @MessagePattern({ cmd: "find_product" })
-  findOne(@Payload("id", ParseIntPipe) id: number) {
-    return this.productsService.findOne(+id);
+  @MessagePattern({ cmd: "find_product_by_id" })
+  findOne(@Payload() idproduct: number) {
+    return this.productsService.findOne(+idproduct);
   }
 
   @MessagePattern({ cmd: "update_product" })
@@ -33,12 +33,12 @@ export class ProductsController {
   }
 
   @MessagePattern({ cmd: "enable_product" })
-  enable(@Payload("id", ParseIntPipe) id: number) {
-    return this.productsService.enableProduct(id);
+  enable(@Payload() idproduct: number) {
+    return this.productsService.enableProduct(+idproduct);
   }
 
   @MessagePattern({ cmd: "remove_product" })
-  remove(@Payload("id", ParseIntPipe) id: number) {
-    return this.productsService.remove(id);
+  remove(@Payload() idproduct: number) {
+    return this.productsService.remove(idproduct);
   }
 }

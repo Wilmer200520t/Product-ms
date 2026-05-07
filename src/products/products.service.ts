@@ -1,5 +1,6 @@
 import {
   BadRequestException,
+  HttpStatus,
   Injectable,
   NotFoundException,
 } from "@nestjs/common";
@@ -9,6 +10,8 @@ import { PrismaService } from "../prisma-config/prisma.service";
 import { PaginationDto } from "../common/dto";
 import { envs } from "../configs";
 import { Product } from "./entities/product.entity";
+import { RpcException } from "@nestjs/microservices";
+import { message } from "../../../../../REST/Basic/typescript/src/bases/01-types";
 
 @Injectable()
 export class ProductsService {
@@ -21,7 +24,6 @@ export class ProductsService {
     const condition = _validateEnable
       ? { idproduct, enabled: true }
       : { idproduct };
-
     const product = await this.prisma.product.findFirst({
       where: condition,
       select: {
@@ -35,16 +37,18 @@ export class ProductsService {
       },
     });
 
-    if (!product) {
-      throw new NotFoundException(
-        `Product with ID: ${idproduct} not found ${_validateEnable ? "or not enabled" : ""}`,
-      );
+    if (!product || product == null) {
+      throw new RpcException({
+        message: `Product with ID: ${idproduct} not found ${_validateEnable ? "or not enabled" : ""}`,
+        status: HttpStatus.NOT_FOUND,
+      });
     }
 
     if (product.enabled) {
-      throw new BadRequestException(
-        `Product with ID: ${idproduct} is already enabled`,
-      );
+      throw new RpcException({
+        message: `Product with ID: ${idproduct} is already enabled`,
+        status: HttpStatus.BAD_REQUEST,
+      });
     }
 
     return product;
@@ -126,11 +130,11 @@ export class ProductsService {
     };
   }
 
-  async enableProduct(id: number) {
-    const product = await this.findProductOrFail(id, false);
+  async enableProduct(idproduct: number) {
+    const product = await this.findProductOrFail(idproduct, false);
 
     return this.prisma.product.update({
-      where: { idproduct: id },
+      where: { idproduct },
       data: { enabled: true },
     });
   }
