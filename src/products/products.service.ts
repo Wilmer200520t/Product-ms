@@ -11,7 +11,6 @@ import { PaginationDto } from "../common/dto";
 import { envs } from "../configs";
 import { Product } from "./entities/product.entity";
 import { RpcException } from "@nestjs/microservices";
-import { message } from "../../../../../REST/Basic/typescript/src/bases/01-types";
 
 @Injectable()
 export class ProductsService {
@@ -102,11 +101,11 @@ export class ProductsService {
     return this.findProductOrFail(idproduct);
   }
 
-  async update(idproduct: number, updateProductDto: UpdateProductDto) {
-    await this.findProductOrFail(idproduct);
+  async update(updateProductDto: UpdateProductDto) {
+    await this.findProductOrFail(updateProductDto.idproduct);
 
     return this.prisma.product.update({
-      where: { idproduct },
+      where: { idproduct: updateProductDto.idproduct },
       data: {
         name: updateProductDto.name,
         price: updateProductDto.price,

@@ -25,11 +25,8 @@ export class ProductsController {
   }
 
   @MessagePattern({ cmd: "update_product" })
-  update(
-    //@Param("id", ParseIntPipe) id: number,
-    @Payload() updateProductDto: UpdateProductDto,
-  ) {
-    return this.productsService.update(updateProductDto.id, updateProductDto);
+  update(@Payload() updateProductDto: UpdateProductDto) {
+    return this.productsService.update(updateProductDto);
   }
 
   @MessagePattern({ cmd: "enable_product" })
